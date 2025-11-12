@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PokéForge</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+<script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.553.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/"
+  }
+}
+</script>
+<style>
+    @keyframes particle-animation {
+        0% { transform: translate(0, 0) scale(1); opacity: 1; }
+        100% { transform: translate(var(--x), var(--y)) scale(0); opacity: 0; }
+    }
+    .particle {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        animation: particle-animation 1.5s forwards;
+        background-color: var(--color);
+    }
+    @keyframes forge-glow-animation {
+        0%, 100% { box-shadow: 0 0 40px 10px rgba(251, 191, 36, 0.4), 0 0 80px 40px rgba(251, 191, 36, 0.2); }
+        50% { box-shadow: 0 0 60px 20px rgba(251, 191, 36, 0.6), 0 0 120px 60px rgba(251, 191, 36, 0.3); }
+    }
+    .forge-glow {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        width: 1px;
+        height: 1px;
+        border-radius: 50%;
+        animation: forge-glow-animation 1.5s ease-in-out infinite;
+    }
+</style>
+</head>
+<body class="bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-200 bg-gradient-to-br from-gray-100 via-purple-100/40 to-gray-100 dark:from-gray-900 dark:via-purple-900/40 dark:to-gray-900 min-h-screen font-sans antialiased transition-colors duration-300">
+    <div id="root"></div>
+    <script type="module" src="./index.tsx"></script>
+</body>
+</html>
